@@ -64,6 +64,15 @@ function decoder_ring_default_page_manager_handlers() {
 }
 
 /**
+ * Implementation of hook_default_page_manager_pages().
+ */
+function decoder_ring_default_page_manager_pages() {
+  module_load_include('inc', 'decoder_ring', 'decoder_ring.defaults');
+  $args = func_get_args();
+  return call_user_func_array('_decoder_ring_default_page_manager_pages', $args);
+}
+
+/**
  * Implementation of hook_strongarm().
  */
 function decoder_ring_strongarm() {
