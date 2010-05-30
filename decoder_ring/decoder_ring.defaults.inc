@@ -856,10 +856,10 @@ function _decoder_ring_ctools_plugin_api() {
   if ($module == "feeds" && $api == "feeds_importer_default") {
     return array("version" => 1);
   }
-  else if ($module == "page_manager" && $api == "pages_default") {
+  elseif ($module == "page_manager" && $api == "pages_default") {
     return array("version" => 1);
   }
-  else if ($module == "strongarm" && $api == "strongarm") {
+  elseif ($module == "strongarm" && $api == "strongarm") {
     return array("version" => 1);
   }
 }
@@ -1247,7 +1247,7 @@ function _decoder_ring_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'context' => 'argument_nid_1',
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
     );
     $pane->cache = array();
@@ -1276,7 +1276,18 @@ function _decoder_ring_default_page_manager_handlers() {
     'css_id' => '',
     'css' => '',
     'contexts' => array(),
-    'relationships' => array(),
+    'relationships' => array(
+      '0' => array(
+        'context' => 'argument_nid_1',
+        'name' => 'node_from_noderef',
+        'id' => 1,
+        'identifier' => 'Author node',
+        'keyword' => 'author-nodereference',
+        'relationship_settings' => array(
+          'field_name' => 'field_dr_user',
+        ),
+      ),
+    ),
     'access' => array(
       'plugins' => array(
         '0' => array(
@@ -1654,9 +1665,10 @@ function _decoder_ring_strongarm() {
   $strongarm->value = array(
     'title' => '-5',
     'body_field' => '-3',
-    'revision_information' => '2',
-    'comment_settings' => '1',
-    'menu' => '0',
+    'revision_information' => '3',
+    'comment_settings' => '2',
+    'menu' => '1',
+    'taxonomy' => '0',
   );
 
   $export['content_extra_weights_dr_post'] = $strongarm;
