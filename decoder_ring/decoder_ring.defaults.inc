@@ -18,14 +18,10 @@ function _decoder_ring_content_default_fields() {
       ),
       'teaser' => array(
         'format' => 'hidden',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'hidden',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'default',
         'exclude' => 0,
       ),
       '2' => array(
@@ -33,6 +29,10 @@ function _decoder_ring_content_default_fields() {
         'exclude' => 0,
       ),
       '3' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
+      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -86,13 +86,9 @@ function _decoder_ring_content_default_fields() {
       ),
       'teaser' => array(
         'format' => 'default',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -101,6 +97,10 @@ function _decoder_ring_content_default_fields() {
         'exclude' => 0,
       ),
       '3' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
+      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -159,14 +159,10 @@ function _decoder_ring_content_default_fields() {
       ),
       'teaser' => array(
         'format' => 'hidden',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'hidden',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'default',
         'exclude' => 0,
       ),
       '2' => array(
@@ -174,6 +170,10 @@ function _decoder_ring_content_default_fields() {
         'exclude' => 0,
       ),
       '3' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
+      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -222,14 +222,10 @@ function _decoder_ring_content_default_fields() {
       ),
       'teaser' => array(
         'format' => 'hidden',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'hidden',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'default',
         'exclude' => 0,
       ),
       '2' => array(
@@ -237,6 +233,10 @@ function _decoder_ring_content_default_fields() {
         'exclude' => 0,
       ),
       '3' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
+      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -297,15 +297,15 @@ function _decoder_ring_content_default_fields() {
         'format' => 'hidden',
         'exclude' => 0,
       ),
-      '4' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
       '2' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
       '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -360,15 +360,15 @@ function _decoder_ring_content_default_fields() {
         'format' => 'default',
         'exclude' => 0,
       ),
-      '4' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
       '2' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
       '3' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
+      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -1039,15 +1039,10 @@ function _decoder_ring_fieldgroup_default_groups() {
         'label' => 'hidden',
         'teaser' => array(
           'format' => 'no_style',
-          'exclude' => 0,
+          'exclude' => 1,
         ),
         'full' => array(
           'format' => 'no_style',
-          'exclude' => 0,
-        ),
-        'description' => '',
-        '4' => array(
-          'format' => 'fieldset',
           'exclude' => 0,
         ),
         '2' => array(
@@ -1055,6 +1050,11 @@ function _decoder_ring_fieldgroup_default_groups() {
           'exclude' => 0,
         ),
         '3' => array(
+          'format' => 'fieldset',
+          'exclude' => 1,
+        ),
+        'description' => '',
+        '4' => array(
           'format' => 'fieldset',
           'exclude' => 0,
         ),
@@ -1202,6 +1202,63 @@ function _decoder_ring_default_page_manager_handlers() {
   $display->panels = array();
     $pane = new stdClass;
     $pane->pid = 'new-1';
+    $pane->panel = 'bottom';
+    $pane->type = 'views';
+    $pane->subtype = 'collection_posts';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '10',
+      'pager_id' => '',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'page_2',
+      'context' => array(
+        '0' => 'argument_nid_1.nid',
+      ),
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['bottom'][0] = 'new-1';
+    $pane = new stdClass;
+    $pane->pid = 'new-2';
+    $pane->panel = 'bottom';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Flags',
+      'title' => '',
+      'body' => '<?php
+$nid = %node:nid;
+print flag_create_link(\'bookmarks\', $nid);
+?>',
+      'format' => '3',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-2'] = $pane;
+    $display->panels['bottom'][1] = 'new-2';
+    $pane = new stdClass;
+    $pane->pid = 'new-3';
     $pane->panel = 'left';
     $pane->type = 'views_panes';
     $pane->subtype = 'collection_posts-panel_pane_1';
@@ -1211,16 +1268,60 @@ function _decoder_ring_default_page_manager_handlers() {
       'context' => array(
         '0' => 'argument_nid_1',
       ),
+      'link_to_view' => 1,
+      'more_link' => 1,
+      'use_pager' => 0,
+      'pager_id' => '',
+      'items_per_page' => '5',
+      'fields_override' => array(
+        'title' => 1,
+        'field_dr_date_value' => 0,
+        'field_dr_user_name_value' => 1,
+      ),
+      'override_title' => 1,
+      'override_title_text' => 'Discussions',
     );
     $pane->cache = array();
     $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['left'][0] = 'new-1';
+    $display->content['new-3'] = $pane;
+    $display->panels['left'][0] = 'new-3';
     $pane = new stdClass;
-    $pane->pid = 'new-2';
+    $pane->pid = 'new-4';
+    $pane->panel = 'left';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'dr_chunks2-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        '0' => 'argument_nid_1',
+      ),
+      'link_to_view' => 1,
+      'more_link' => 1,
+      'use_pager' => 0,
+      'pager_id' => '',
+      'items_per_page' => '5',
+      'fields_override' => array(
+        'title' => 0,
+        'tid' => 1,
+        'name' => 1,
+        'text' => 1,
+      ),
+      'override_title' => 1,
+      'override_title_text' => 'Tagged chunks',
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-4'] = $pane;
+    $display->panels['left'][1] = 'new-4';
+    $pane = new stdClass;
+    $pane->pid = 'new-5';
     $pane->panel = 'right';
     $pane->type = 'views_panes';
     $pane->subtype = 'collection_users-panel_pane_1';
@@ -1230,16 +1331,27 @@ function _decoder_ring_default_page_manager_handlers() {
       'context' => array(
         '0' => 'argument_nid_1',
       ),
+      'link_to_view' => 1,
+      'more_link' => 1,
+      'use_pager' => 0,
+      'pager_id' => '',
+      'items_per_page' => '10',
+      'fields_override' => array(
+        'field_dr_user_avatar_fid' => 1,
+        'field_dr_user_name_value' => 1,
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-2'] = $pane;
-    $display->panels['right'][0] = 'new-2';
+    $display->content['new-5'] = $pane;
+    $display->panels['right'][0] = 'new-5';
     $pane = new stdClass;
-    $pane->pid = 'new-3';
+    $pane->pid = 'new-6';
     $pane->panel = 'top';
     $pane->type = 'node_body';
     $pane->subtype = 'node_body';
@@ -1255,8 +1367,8 @@ function _decoder_ring_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-3'] = $pane;
-    $display->panels['top'][0] = 'new-3';
+    $display->content['new-6'] = $pane;
+    $display->panels['top'][0] = 'new-6';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -1285,6 +1397,26 @@ function _decoder_ring_default_page_manager_handlers() {
         'keyword' => 'author-nodereference',
         'relationship_settings' => array(
           'field_name' => 'field_dr_user',
+        ),
+      ),
+      '1' => array(
+        'context' => 'argument_nid_1',
+        'name' => 'node_from_noderef',
+        'id' => 2,
+        'identifier' => 'Collection node',
+        'keyword' => 'collection-nodereference',
+        'relationship_settings' => array(
+          'field_name' => 'field_dr_collection',
+        ),
+      ),
+      '2' => array(
+        'context' => 'argument_nid_1',
+        'name' => 'node_from_noderef',
+        'id' => 3,
+        'identifier' => 'Parent node',
+        'keyword' => 'parent-nodereference',
+        'relationship_settings' => array(
+          'field_name' => 'field_dr_parent',
         ),
       ),
     ),
@@ -1375,6 +1507,33 @@ function _decoder_ring_default_page_manager_handlers() {
     $pane = new stdClass;
     $pane->pid = 'new-4';
     $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Flags',
+      'title' => '',
+      'body' => '<?php
+$nid = %node:nid;
+print l(t(\'Edit this\'), \'node/\'. $nid .\'/edit\') .\' \'. flag_create_link(\'bookmarks\', $nid) .\' \'. flag_create_link(\'reviewed\', $nid);
+?>',
+      'format' => '3',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'links',
+    );
+    $pane->extras = array();
+    $pane->position = 3;
+    $display->content['new-4'] = $pane;
+    $display->panels['middle'][3] = 'new-4';
+    $pane = new stdClass;
+    $pane->pid = 'new-5';
+    $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'dr_post_children-panel_pane_1';
     $pane->shown = TRUE;
@@ -1390,14 +1549,238 @@ function _decoder_ring_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
-    $display->content['new-4'] = $pane;
-    $display->panels['middle'][3] = 'new-4';
+    $pane->position = 4;
+    $display->content['new-5'] = $pane;
+    $display->panels['middle'][4] = 'new-5';
+    $pane = new stdClass;
+    $pane->pid = 'new-6';
+    $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Breadcrumb override',
+      'title' => '',
+      'body' => '<?php
+$collection_nid = (int)"%collection-nodereference:nid";
+$collection_title = "%collection-nodereference:title";
+$parent_test = (int)"%parent-nodereference:nid";
+$parent_nid = NULL;
+if (isset($parent_test) && $parent_test) {
+  $parent_nid = $parent_test;
+  $parent_title = "%parent-nodereference:title";
+}
+$breadcrumb = array();
+$breadcrumb[] = l(\'Home\', \'<front>\');
+$breadcrumb[] = l($collection_title, \'node/\'. $collection_nid);
+if ($parent_nid) {
+  $breadcrumb[] = l($parent_title, \'node/\'. $parent_nid);
+}
+drupal_set_breadcrumb($breadcrumb);',
+      'format' => '3',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 5;
+    $display->content['new-6'] = $pane;
+    $display->panels['middle'][5] = 'new-6';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
 
   $export['node_view_panel_context_2'] = $handler;
+  $handler = new stdClass;
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'node_view_panel_context_3';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = 2;
+  $handler->conf = array(
+    'title' => 'User Node View',
+    'no_blocks' => FALSE,
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(
+      '0' => array(
+        'context' => 'argument_nid_1',
+        'name' => 'node_from_noderef',
+        'id' => 1,
+        'identifier' => 'Collection node',
+        'keyword' => 'collection-nodereference',
+        'relationship_settings' => array(
+          'field_name' => 'field_dr_collection',
+        ),
+      ),
+    ),
+    'access' => array(
+      'plugins' => array(
+        '0' => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'dr_user' => 'dr_user',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display;
+  $display->layout = 'twocol';
+  $display->layout_settings = array();
+  $display->panel_settings = array();
+  $display->cache = array();
+  $display->title = '';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass;
+    $pane->pid = 'new-1';
+    $pane->panel = 'left';
+    $pane->type = 'content_field';
+    $pane->subtype = 'field_dr_user_name';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'inline',
+      'formatter' => 'plain',
+      'context' => 'argument_nid_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['left'][0] = 'new-1';
+    $pane = new stdClass;
+    $pane->pid = 'new-2';
+    $pane->panel = 'left';
+    $pane->type = 'content_field';
+    $pane->subtype = 'field_dr_user_avatar';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'normal',
+      'formatter' => 'avatar_default',
+      'context' => 'argument_nid_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-2'] = $pane;
+    $display->panels['left'][1] = 'new-2';
+    $pane = new stdClass;
+    $pane->pid = 'new-3';
+    $pane->panel = 'left';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Breadcrumb override',
+      'title' => '',
+      'body' => '<?php
+$collection_nid = (int)"%collection-nodereference:nid";
+$collection_title = "%collection-nodereference:title";
+
+$breadcrumb = array();
+$breadcrumb[] = l(\'Home\', \'<front>\');
+$breadcrumb[] = l($collection_title, \'node/\'. $collection_nid);
+
+drupal_set_breadcrumb($breadcrumb);',
+      'format' => '3',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $display->content['new-3'] = $pane;
+    $display->panels['left'][2] = 'new-3';
+    $pane = new stdClass;
+    $pane->pid = 'new-4';
+    $pane->panel = 'right';
+    $pane->type = 'content_field';
+    $pane->subtype = 'field_dr_user_date';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'inline',
+      'formatter' => 'default',
+      'context' => 'argument_nid_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-4'] = $pane;
+    $display->panels['right'][0] = 'new-4';
+    $pane = new stdClass;
+    $pane->pid = 'new-5';
+    $pane->panel = 'right';
+    $pane->type = 'content_field';
+    $pane->subtype = 'field_dr_user_external_id';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'inline',
+      'formatter' => 'default',
+      'context' => 'argument_nid_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-5'] = $pane;
+    $display->panels['right'][1] = 'new-5';
+    $pane = new stdClass;
+    $pane->pid = 'new-6';
+    $pane->panel = 'right';
+    $pane->type = 'content_field';
+    $pane->subtype = 'field_dr_user_rank';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'inline',
+      'formatter' => 'default',
+      'context' => 'argument_nid_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $display->content['new-6'] = $pane;
+    $display->panels['right'][2] = 'new-6';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-1';
+  $handler->conf['display'] = $display;
+
+  $export['node_view_panel_context_3'] = $handler;
   return $export;
 }
 

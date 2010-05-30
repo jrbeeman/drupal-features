@@ -288,7 +288,7 @@ function _decoder_ring_views_default_views() {
     ),
     'default' => 'field_dr_date_value',
   ));
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler = $view->new_display('panel_pane', 'Top-level Discussions Content pane', 'panel_pane_1');
   $handler->override_option('pane_title', '');
   $handler->override_option('pane_description', '');
   $handler->override_option('pane_category', array(
@@ -296,15 +296,15 @@ function _decoder_ring_views_default_views() {
     'weight' => 0,
   ));
   $handler->override_option('allow', array(
-    'use_pager' => 0,
-    'items_per_page' => 0,
+    'use_pager' => 'use_pager',
+    'items_per_page' => 'items_per_page',
     'offset' => 0,
-    'link_to_view' => 0,
-    'more_link' => 0,
+    'link_to_view' => 'link_to_view',
+    'more_link' => 'more_link',
     'path_override' => 0,
-    'title_override' => 0,
+    'title_override' => 'title_override',
     'exposed_form' => FALSE,
-    'fields_override' => 0,
+    'fields_override' => 'fields_override',
   ));
   $handler->override_option('argument_input', array(
     'field_dr_collection_nid' => array(
@@ -318,10 +318,155 @@ function _decoder_ring_views_default_views() {
   ));
   $handler->override_option('link_to_view', '1');
   $handler->override_option('inherit_panels_path', 0);
-  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler = $view->new_display('page', 'Top-level discussions', 'page_1');
   $handler->override_option('items_per_page', 20);
   $handler->override_option('use_pager', '1');
   $handler->override_option('path', 'collection/%/posts');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler = $view->new_display('page', 'Search all', 'page_2');
+  $handler->override_option('arguments', array(
+    'field_dr_collection_nid' => array(
+      'default_action' => 'empty',
+      'style_plugin' => 'default_summary',
+      'style_options' => array(),
+      'wildcard' => 'all',
+      'wildcard_substitution' => 'All',
+      'title' => 'Discussions in %1',
+      'breadcrumb' => '',
+      'default_argument_type' => 'fixed',
+      'default_argument' => '',
+      'validate_type' => 'none',
+      'validate_fail' => 'not found',
+      'break_phrase' => 0,
+      'not' => 0,
+      'id' => 'field_dr_collection_nid',
+      'table' => 'node_data_field_dr_collection',
+      'field' => 'field_dr_collection_nid',
+      'validate_user_argument_type' => 'uid',
+      'validate_user_roles' => array(
+        '2' => 0,
+        '3' => 0,
+      ),
+      'relationship' => 'none',
+      'default_options_div_prefix' => '',
+      'default_argument_fixed' => '',
+      'default_argument_user' => 0,
+      'default_argument_php' => '',
+      'validate_argument_node_type' => array(
+        'dr_collection' => 0,
+        'dr_post' => 0,
+        'dr_user' => 0,
+        'page' => 0,
+        'story' => 0,
+      ),
+      'validate_argument_node_access' => 0,
+      'validate_argument_nid_type' => 'nid',
+      'validate_argument_vocabulary' => array(
+        '10' => 0,
+        '4' => 0,
+        '6' => 0,
+        '9' => 0,
+        '8' => 0,
+        '3' => 0,
+        '2' => 0,
+        '7' => 0,
+        '5' => 0,
+        '1' => 0,
+      ),
+      'validate_argument_type' => 'tid',
+      'validate_argument_transform' => 0,
+      'validate_user_restrict_roles' => 0,
+      'validate_argument_node_flag_name' => '*relationship*',
+      'validate_argument_node_flag_test' => 'flaggable',
+      'validate_argument_node_flag_id_type' => 'id',
+      'validate_argument_user_flag_name' => '*relationship*',
+      'validate_argument_user_flag_test' => 'flaggable',
+      'validate_argument_user_flag_id_type' => 'id',
+      'validate_argument_php' => '',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+  ));
+  $handler->override_option('filters', array(
+    'status' => array(
+      'operator' => '=',
+      'value' => '1',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
+      'relationship' => 'none',
+    ),
+    'type' => array(
+      'operator' => 'in',
+      'value' => array(
+        'dr_post' => 'dr_post',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'type',
+      'table' => 'node',
+      'field' => 'type',
+      'relationship' => 'none',
+    ),
+    'keys' => array(
+      'operator' => 'required',
+      'value' => '',
+      'group' => '0',
+      'exposed' => TRUE,
+      'expose' => array(
+        'use_operator' => 0,
+        'operator' => 'keys_op',
+        'identifier' => 'keys',
+        'label' => 'Search posts in this collection',
+        'optional' => 0,
+        'remember' => 0,
+      ),
+      'id' => 'keys',
+      'table' => 'search_index',
+      'field' => 'keys',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('use_pager', '1');
+  $handler->override_option('style_plugin', 'default');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+  ));
+  $handler->override_option('row_plugin', 'node');
+  $handler->override_option('row_options', array(
+    'relationship' => 'none',
+    'build_mode' => 'teaser',
+    'links' => 0,
+    'comments' => 0,
+  ));
+  $handler->override_option('path', 'collection/%/posts/search');
   $handler->override_option('menu', array(
     'type' => 'none',
     'title' => '',
@@ -512,6 +657,27 @@ function _decoder_ring_views_default_views() {
       'field' => 'type',
       'relationship' => 'none',
     ),
+    'keys' => array(
+      'operator' => 'optional',
+      'value' => '',
+      'group' => '0',
+      'exposed' => TRUE,
+      'expose' => array(
+        'use_operator' => 0,
+        'operator' => 'keys_op',
+        'identifier' => 'keys',
+        'label' => 'Find a user',
+        'optional' => 1,
+        'remember' => 0,
+      ),
+      'id' => 'keys',
+      'table' => 'search_index',
+      'field' => 'keys',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('access', array(
     'type' => 'none',
@@ -539,7 +705,7 @@ function _decoder_ring_views_default_views() {
         'separator' => '',
       ),
       'field_dr_user_name_value' => array(
-        'sortable' => 1,
+        'sortable' => 0,
         'separator' => '',
       ),
     ),
@@ -553,15 +719,15 @@ function _decoder_ring_views_default_views() {
     'weight' => 0,
   ));
   $handler->override_option('allow', array(
-    'use_pager' => 0,
-    'items_per_page' => 0,
+    'use_pager' => 'use_pager',
+    'items_per_page' => 'items_per_page',
     'offset' => 0,
-    'link_to_view' => 0,
-    'more_link' => 0,
+    'link_to_view' => 'link_to_view',
+    'more_link' => 'more_link',
     'path_override' => 0,
-    'title_override' => 0,
+    'title_override' => 'title_override',
     'exposed_form' => FALSE,
-    'fields_override' => 0,
+    'fields_override' => 'fields_override',
   ));
   $handler->override_option('argument_input', array(
     'field_dr_collection_nid' => array(
@@ -725,8 +891,8 @@ function _decoder_ring_views_default_views() {
         'suffix' => '',
         'target' => '',
         'help' => '',
-        'trim' => 0,
-        'max_length' => '',
+        'trim' => 1,
+        'max_length' => '50',
         'word_boundary' => 1,
         'ellipsis' => 1,
         'html' => 0,
@@ -741,65 +907,9 @@ function _decoder_ring_views_default_views() {
       'table' => 'node',
       'field' => 'title',
       'relationship' => 'nid',
-    ),
-    'name' => array(
-      'label' => 'Term',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
+      'override' => array(
+        'button' => 'Override',
       ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_taxonomy' => 0,
-      'exclude' => 0,
-      'id' => 'name',
-      'table' => 'term_data',
-      'field' => 'name',
-      'relationship' => 'tid',
-    ),
-    'text' => array(
-      'label' => 'Chunk text',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'exclude' => 0,
-      'id' => 'text',
-      'table' => 'term_chunk',
-      'field' => 'text',
-      'relationship' => 'none',
     ),
     'tid' => array(
       'label' => 'Chunk Term ID',
@@ -830,7 +940,7 @@ function _decoder_ring_views_default_views() {
       'separator' => ',',
       'prefix' => '',
       'suffix' => '',
-      'exclude' => 0,
+      'exclude' => 1,
       'id' => 'tid',
       'table' => 'term_chunk',
       'field' => 'tid',
@@ -839,12 +949,94 @@ function _decoder_ring_views_default_views() {
       ),
       'relationship' => 'none',
     ),
+    'name' => array(
+      'label' => 'Term',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 1,
+        'path' => 'dr-chunks/!1/[tid]',
+        'link_class' => '',
+        'alt' => 'Filter to show chunks tagged "[name]" in %1',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_taxonomy' => 0,
+      'exclude' => 0,
+      'id' => 'name',
+      'table' => 'term_data',
+      'field' => 'name',
+      'relationship' => 'tid',
+      'override' => array(
+        'button' => 'Override',
+      ),
+    ),
+    'text' => array(
+      'label' => 'Chunk text',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'exclude' => 0,
+      'id' => 'text',
+      'table' => 'term_chunk',
+      'field' => 'text',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
+    ),
+  ));
+  $handler->override_option('sorts', array(
+    'field_dr_date_value' => array(
+      'order' => 'ASC',
+      'delta' => -1,
+      'id' => 'field_dr_date_value',
+      'table' => 'node_data_field_dr_date',
+      'field' => 'field_dr_date_value',
+      'relationship' => 'nid',
+      'override' => array(
+        'button' => 'Override',
+      ),
+    ),
   ));
   $handler->override_option('arguments', array(
     'field_dr_collection_nid' => array(
       'default_action' => 'empty',
       'style_plugin' => 'default_summary',
-      'style_options' => array(),
+      'style_options' => array(
+        'count' => 1,
+        'override' => 1,
+        'items_per_page' => '25',
+      ),
       'wildcard' => 'all',
       'wildcard_substitution' => 'All',
       'title' => 'Tagged chunks in %1',
@@ -899,25 +1091,30 @@ function _decoder_ring_views_default_views() {
       'validate_argument_user_flag_test' => 'flaggable',
       'validate_argument_user_flag_id_type' => 'id',
       'validate_argument_php' => '',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
-    'tid_1' => array(
+    'tid' => array(
       'default_action' => 'ignore',
       'style_plugin' => 'default_summary',
       'style_options' => array(),
       'wildcard' => 'all',
       'wildcard_substitution' => 'All',
-      'title' => 'Chunks tagged %2 in %1',
+      'title' => 'Chunks tagged "%2" in %1',
       'breadcrumb' => '',
       'default_argument_type' => 'fixed',
       'default_argument' => '',
       'validate_type' => 'none',
       'validate_fail' => 'not found',
       'break_phrase' => 0,
-      'not' => 0,
-      'id' => 'tid_1',
-      'table' => 'term_data',
+      'add_table' => 0,
+      'require_value' => 0,
+      'reduce_duplicates' => 0,
+      'set_breadcrumb' => 0,
+      'id' => 'tid',
+      'table' => 'term_chunk',
       'field' => 'tid',
-      'relationship' => 'tid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
         '2' => 0,
@@ -926,6 +1123,7 @@ function _decoder_ring_views_default_views() {
       'override' => array(
         'button' => 'Override',
       ),
+      'relationship' => 'none',
       'default_options_div_prefix' => '',
       'default_argument_fixed' => '',
       'default_argument_user' => 0,
@@ -961,6 +1159,44 @@ function _decoder_ring_views_default_views() {
       'validate_argument_user_flag_test' => 'flaggable',
       'validate_argument_user_flag_id_type' => 'id',
       'validate_argument_php' => '',
+    ),
+  ));
+  $handler->override_option('filters', array(
+    'status' => array(
+      'operator' => '=',
+      'value' => '1',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
+      'relationship' => 'nid',
+      'override' => array(
+        'button' => 'Override',
+      ),
+    ),
+    'type' => array(
+      'operator' => 'in',
+      'value' => array(
+        'dr_post' => 'dr_post',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'type',
+      'table' => 'node',
+      'field' => 'type',
+      'relationship' => 'nid',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
   ));
   $handler->override_option('access', array(
@@ -1016,6 +1252,47 @@ function _decoder_ring_views_default_views() {
     'weight' => 0,
     'name' => 'navigation',
   ));
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->override_option('items_per_page', 5);
+  $handler->override_option('use_more', 1);
+  $handler->override_option('use_more_always', 0);
+  $handler->override_option('pane_title', '');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'View panes',
+    'weight' => 0,
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => 'use_pager',
+    'items_per_page' => 'items_per_page',
+    'offset' => 0,
+    'link_to_view' => 'link_to_view',
+    'more_link' => 'more_link',
+    'path_override' => 0,
+    'title_override' => 'title_override',
+    'exposed_form' => FALSE,
+    'fields_override' => 'fields_override',
+  ));
+  $handler->override_option('argument_input', array(
+    'field_dr_collection_nid' => array(
+      'type' => 'context',
+      'context' => 'node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Post collection (field_dr_collection)',
+    ),
+    'tid' => array(
+      'type' => 'none',
+      'context' => 'node.mod-????',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Taxonomy: Chunk Term ID',
+    ),
+  ));
+  $handler->override_option('link_to_view', '1');
+  $handler->override_option('inherit_panels_path', 0);
 
   $views[$view->name] = $view;
 
@@ -1070,36 +1347,6 @@ function _decoder_ring_views_default_views() {
       'id' => 'title',
       'table' => 'node',
       'field' => 'title',
-      'relationship' => 'none',
-    ),
-    'edit_node' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'text' => 'Edit',
-      'exclude' => 0,
-      'id' => 'edit_node',
-      'table' => 'node',
-      'field' => 'edit_node',
       'relationship' => 'none',
     ),
     'field_dr_user_avatar_fid' => array(
@@ -1220,6 +1467,41 @@ function _decoder_ring_views_default_views() {
       'id' => 'field_dr_date_value',
       'table' => 'node_data_field_dr_date',
       'field' => 'field_dr_date_value',
+      'relationship' => 'none',
+    ),
+    'phpcode' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'value' => '<?php
+print \'<div class="links">\'. l(t(\'Edit this\'), \'node/\'. $data->nid .\'/edit\') .\' \'. flag_create_link(\'bookmarks\', $data->nid) .\' \'. flag_create_link(\'reviewed\', $data->nid) .\'</div>\';
+?>',
+      'exclude' => 0,
+      'id' => 'phpcode',
+      'table' => 'customfield',
+      'field' => 'phpcode',
+      'override' => array(
+        'button' => 'Override',
+      ),
       'relationship' => 'none',
     ),
     'body' => array(
