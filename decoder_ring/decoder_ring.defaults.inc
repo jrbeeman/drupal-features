@@ -1835,11 +1835,11 @@ function _decoder_ring_default_page_manager_pages() {
   $page = new stdClass;
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
-  $page->name = 'dr_post_reports';
+  $page->name = 'dr_reports';
   $page->task = 'page';
-  $page->admin_title = 'Post reports';
+  $page->admin_title = 'Decoder Ring reports';
   $page->admin_description = '';
-  $page->path = 'node/%node/reports';
+  $page->path = 'node/%node/reports-tmp';
   $page->access = array();
   $page->menu = array();
   $page->arguments = array(
@@ -1855,9 +1855,9 @@ function _decoder_ring_default_page_manager_pages() {
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_dr_post_reports_panel_context';
+  $handler->name = 'page_dr_reports_panel_context';
   $handler->task = 'page';
-  $handler->subtask = 'dr_post_reports';
+  $handler->subtask = 'dr_reports';
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
@@ -1963,7 +1963,7 @@ drupal_set_breadcrumb($breadcrumb);',
   $display->title_pane = 'new-2';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
-  $pages['dr_post_reports'] = $page;
+  $pages['dr_reports'] = $page;
 
  return $pages;
 
@@ -2277,7 +2277,7 @@ function _decoder_ring_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'theme_default';
-  $strongarm->value = 'singular';
+  $strongarm->value = 'cube';
 
   $export['theme_default'] = $strongarm;
   $strongarm = new stdClass;
