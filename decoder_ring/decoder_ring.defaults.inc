@@ -1446,24 +1446,19 @@ print flag_create_link(\'bookmarks\', $nid);
     $pane = new stdClass;
     $pane->pid = 'new-1';
     $pane->panel = 'middle';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'content_field';
+    $pane->subtype = 'field_dr_user';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Links',
-      'title' => '',
-      'body' => '<?php
-$nid = (int)"%node:nid";
-print l(t(\'Reports for this post\'), \'node/\'. $nid .\'/reports\');
-?>',
-      'format' => '3',
-      'substitute' => 1,
+      'label' => 'inline',
+      'formatter' => 'default',
+      'context' => 'argument_nid_1',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
-    $pane->style = array(
-      'style' => 'rounded_corners',
-    );
+    $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
@@ -1473,7 +1468,7 @@ print l(t(\'Reports for this post\'), \'node/\'. $nid .\'/reports\');
     $pane->pid = 'new-2';
     $pane->panel = 'middle';
     $pane->type = 'content_field';
-    $pane->subtype = 'field_dr_user';
+    $pane->subtype = 'field_dr_date';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -1493,27 +1488,6 @@ print l(t(\'Reports for this post\'), \'node/\'. $nid .\'/reports\');
     $pane = new stdClass;
     $pane->pid = 'new-3';
     $pane->panel = 'middle';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_dr_date';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'inline',
-      'formatter' => 'default',
-      'context' => 'argument_nid_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array();
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $display->content['new-3'] = $pane;
-    $display->panels['middle'][2] = 'new-3';
-    $pane = new stdClass;
-    $pane->pid = 'new-4';
-    $pane->panel = 'middle';
     $pane->type = 'node_body';
     $pane->subtype = 'node_body';
     $pane->shown = TRUE;
@@ -1527,11 +1501,11 @@ print l(t(\'Reports for this post\'), \'node/\'. $nid .\'/reports\');
     $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
-    $display->content['new-4'] = $pane;
-    $display->panels['middle'][3] = 'new-4';
+    $pane->position = 2;
+    $display->content['new-3'] = $pane;
+    $display->panels['middle'][2] = 'new-3';
     $pane = new stdClass;
-    $pane->pid = 'new-5';
+    $pane->pid = 'new-4';
     $pane->panel = 'middle';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -1554,11 +1528,11 @@ print l(t(\'Edit this\'), \'node/\'. $nid .\'/edit\') .\' \'. flag_create_link(\
       'css_class' => 'links',
     );
     $pane->extras = array();
-    $pane->position = 4;
-    $display->content['new-5'] = $pane;
-    $display->panels['middle'][4] = 'new-5';
+    $pane->position = 3;
+    $display->content['new-4'] = $pane;
+    $display->panels['middle'][3] = 'new-4';
     $pane = new stdClass;
-    $pane->pid = 'new-6';
+    $pane->pid = 'new-5';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'dr_post_children-panel_pane_1';
@@ -1575,11 +1549,11 @@ print l(t(\'Edit this\'), \'node/\'. $nid .\'/edit\') .\' \'. flag_create_link(\
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
-    $display->content['new-6'] = $pane;
-    $display->panels['middle'][5] = 'new-6';
+    $pane->position = 4;
+    $display->content['new-5'] = $pane;
+    $display->panels['middle'][4] = 'new-5';
     $pane = new stdClass;
-    $pane->pid = 'new-7';
+    $pane->pid = 'new-6';
     $pane->panel = 'middle';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -1611,9 +1585,9 @@ drupal_set_breadcrumb($breadcrumb);',
     $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
-    $display->content['new-7'] = $pane;
-    $display->panels['middle'][6] = 'new-7';
+    $pane->position = 5;
+    $display->content['new-6'] = $pane;
+    $display->panels['middle'][5] = 'new-6';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -1714,7 +1688,7 @@ drupal_set_breadcrumb($breadcrumb);',
     $pane->pid = 'new-3';
     $pane->panel = 'left';
     $pane->type = 'content_field';
-    $pane->subtype = 'field_dr_user_date';
+    $pane->subtype = 'field_dr_user_rank';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -1733,48 +1707,6 @@ drupal_set_breadcrumb($breadcrumb);',
     $display->panels['left'][2] = 'new-3';
     $pane = new stdClass;
     $pane->pid = 'new-4';
-    $pane->panel = 'left';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_dr_user_external_id';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'inline',
-      'formatter' => 'default',
-      'context' => 'argument_nid_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array();
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $display->content['new-4'] = $pane;
-    $display->panels['left'][3] = 'new-4';
-    $pane = new stdClass;
-    $pane->pid = 'new-5';
-    $pane->panel = 'left';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_dr_user_rank';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'inline',
-      'formatter' => 'default',
-      'context' => 'argument_nid_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array();
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 4;
-    $display->content['new-5'] = $pane;
-    $display->panels['left'][4] = 'new-5';
-    $pane = new stdClass;
-    $pane->pid = 'new-6';
     $pane->panel = 'left';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -1799,17 +1731,20 @@ drupal_set_breadcrumb($breadcrumb);',
     $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
-    $display->content['new-6'] = $pane;
-    $display->panels['left'][5] = 'new-6';
+    $pane->position = 3;
+    $display->content['new-4'] = $pane;
+    $display->panels['left'][3] = 'new-4';
     $pane = new stdClass;
-    $pane->pid = 'new-7';
+    $pane->pid = 'new-5';
     $pane->panel = 'right';
-    $pane->type = 'block';
-    $pane->subtype = 'dr-user_activity';
+    $pane->type = 'content_field';
+    $pane->subtype = 'field_dr_user_date';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
+      'label' => 'inline',
+      'formatter' => 'default',
+      'context' => 'argument_nid_1',
       'override_title' => 0,
       'override_title_text' => '',
     );
@@ -1818,8 +1753,29 @@ drupal_set_breadcrumb($breadcrumb);',
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-7'] = $pane;
-    $display->panels['right'][0] = 'new-7';
+    $display->content['new-5'] = $pane;
+    $display->panels['right'][0] = 'new-5';
+    $pane = new stdClass;
+    $pane->pid = 'new-6';
+    $pane->panel = 'right';
+    $pane->type = 'content_field';
+    $pane->subtype = 'field_dr_user_external_id';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'inline',
+      'formatter' => 'default',
+      'context' => 'argument_nid_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-6'] = $pane;
+    $display->panels['right'][1] = 'new-6';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-1';
   $handler->conf['display'] = $display;
@@ -1837,11 +1793,22 @@ function _decoder_ring_default_page_manager_pages() {
   $page->api_version = 1;
   $page->name = 'dr_reports';
   $page->task = 'page';
-  $page->admin_title = 'Decoder Ring reports';
+  $page->admin_title = 'Decoder Ring user and post reports';
   $page->admin_description = '';
-  $page->path = 'node/%node/reports-tmp';
+  $page->path = 'node/%node/reports';
   $page->access = array();
-  $page->menu = array();
+  $page->menu = array(
+    'type' => 'tab',
+    'title' => 'Reports',
+    'name' => 'navigation',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
   $page->arguments = array(
     'node' => array(
       'id' => 1,
@@ -1959,8 +1926,137 @@ drupal_set_breadcrumb($breadcrumb);',
     $pane->position = 0;
     $display->content['new-2'] = $pane;
     $display->panels['left'][0] = 'new-2';
+    $pane = new stdClass;
+    $pane->pid = 'new-3';
+    $pane->panel = 'right';
+    $pane->type = 'block';
+    $pane->subtype = 'dr-thread_taxonomy';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-3'] = $pane;
+    $display->panels['right'][0] = 'new-3';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-2';
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $handler = new stdClass;
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_dr_reports_panel_context_2';
+  $handler->task = 'page';
+  $handler->subtask = 'dr_reports';
+  $handler->handler = 'panel_context';
+  $handler->weight = 1;
+  $handler->conf = array(
+    'title' => 'User reports page',
+    'no_blocks' => 0,
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(
+      '0' => array(
+        'context' => 'argument_nid_1',
+        'name' => 'node_from_noderef',
+        'id' => 1,
+        'identifier' => 'Collection node',
+        'keyword' => 'collection-nodereference',
+        'relationship_settings' => array(
+          'field_name' => 'field_dr_collection',
+        ),
+      ),
+      '1' => array(
+        'context' => 'argument_nid_1',
+        'name' => 'node_from_noderef',
+        'id' => 2,
+        'identifier' => 'Parent node',
+        'keyword' => 'parent-nodereference',
+        'relationship_settings' => array(
+          'field_name' => 'field_dr_parent',
+        ),
+      ),
+    ),
+    'access' => array(
+      'plugins' => array(
+        '0' => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'dr_user' => 'dr_user',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display;
+  $display->layout = 'twocol_stacked';
+  $display->layout_settings = array();
+  $display->panel_settings = array();
+  $display->cache = array();
+  $display->title = 'Reports: %node:title';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass;
+    $pane->pid = 'new-1';
+    $pane->panel = 'bottom';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Breadcrumb override',
+      'title' => '',
+      'body' => '<?php
+$collection_nid = (int)"%collection-nodereference:nid";
+$collection_title = "%collection-nodereference:title";
+$node_nid = (int)"%node:nid";
+$node_title = "%node:title";
+$breadcrumb = array();
+$breadcrumb[] = l(\'Home\', \'<front>\');
+$breadcrumb[] = l($collection_title, \'node/\'. $collection_nid);
+$breadcrumb[] = l($node_title, \'node/\'. $node_nid);
+drupal_set_breadcrumb($breadcrumb);',
+      'format' => '3',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['bottom'][0] = 'new-1';
+    $pane = new stdClass;
+    $pane->pid = 'new-2';
+    $pane->panel = 'left';
+    $pane->type = 'block';
+    $pane->subtype = 'dr-user_activity';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-2'] = $pane;
+    $display->panels['left'][0] = 'new-2';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['dr_reports'] = $page;
