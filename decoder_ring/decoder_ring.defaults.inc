@@ -2778,10 +2778,10 @@ function _decoder_ring_strongarm() {
       'warning' => 0,
       'error' => 0,
     ),
-    'style' => 'rocks',
+    'style' => 'custom',
     'background_file' => '',
-    'background_path' => '',
-    'background_color' => '#888888',
+    'background_path' => 'sites/default/files/singular_background.jpg',
+    'background_color' => '#000000',
     'background_repeat' => 'no-repeat',
   );
 
