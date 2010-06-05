@@ -1808,8 +1808,17 @@ function _decoder_ring_default_page_manager_pages() {
         ),
         'context' => 'argument_nid_1',
       ),
+      '1' => array(
+        'name' => 'role',
+        'settings' => array(
+          'rids' => array(
+            '0' => 2,
+          ),
+        ),
+        'context' => 'logged-in-user',
+      ),
     ),
-    'logic' => 'or',
+    'logic' => 'and',
   );
   $page->menu = array(
     'type' => 'tab',
@@ -2282,7 +2291,7 @@ drupal_set_breadcrumb($breadcrumb);',
   $page->admin_description = '';
   $page->path = 'node/%node/search';
   $page->access = array(
-    'logic' => 'or',
+    'logic' => 'and',
     'plugins' => array(
       '0' => array(
         'name' => 'node_type',
@@ -2294,6 +2303,15 @@ drupal_set_breadcrumb($breadcrumb);',
           ),
         ),
         'context' => 'argument_nid_1',
+      ),
+      '1' => array(
+        'name' => 'role',
+        'settings' => array(
+          'rids' => array(
+            '0' => 2,
+          ),
+        ),
+        'context' => 'logged-in-user',
       ),
     ),
   );
@@ -2360,21 +2378,25 @@ drupal_set_breadcrumb($breadcrumb);',
     $pane = new stdClass;
     $pane->pid = 'new-1';
     $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'collection_posts-panel_pane_2';
+    $pane->type = 'views';
+    $pane->subtype = 'dr_collection_search';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'link_to_view' => 0,
-      'more_link' => 0,
-      'use_pager' => 1,
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '20',
       'pager_id' => '',
-      'items_per_page' => '25',
-      'path' => '',
-      'fields_override' => array(
-        'title' => 1,
-        'field_dr_date_value' => 1,
-        'field_dr_user_name_value' => 1,
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 1,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'page_1',
+      'context' => array(
+        '0' => '',
       ),
       'override_title' => 0,
       'override_title_text' => '',
