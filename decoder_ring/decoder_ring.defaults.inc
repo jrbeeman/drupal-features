@@ -122,8 +122,8 @@ function _decoder_ring_content_default_fields() {
       'hour' => 'hour',
       'minute' => 'minute',
     ),
-    'timezone_db' => 'UTC',
-    'tz_handling' => 'user',
+    'timezone_db' => '',
+    'tz_handling' => 'none',
     'todate' => '',
     'repeat' => 0,
     'repeat_collapsed' => '',
@@ -614,8 +614,8 @@ function _decoder_ring_content_default_fields() {
       'hour' => 'hour',
       'minute' => 'minute',
     ),
-    'timezone_db' => 'UTC',
-    'tz_handling' => 'user',
+    'timezone_db' => '',
+    'tz_handling' => 'none',
     'todate' => '',
     'repeat' => 0,
     'repeat_collapsed' => '',
@@ -1203,39 +1203,6 @@ function _decoder_ring_default_page_manager_handlers() {
     $pane = new stdClass;
     $pane->pid = 'new-1';
     $pane->panel = 'bottom';
-    $pane->type = 'views';
-    $pane->subtype = 'collection_posts';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '10',
-      'pager_id' => '',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'page_2',
-      'context' => array(
-        '0' => 'argument_nid_1.nid',
-      ),
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array();
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['bottom'][0] = 'new-1';
-    $pane = new stdClass;
-    $pane->pid = 'new-2';
-    $pane->panel = 'bottom';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -1254,11 +1221,11 @@ print flag_create_link(\'bookmarks\', $nid);
     $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-2'] = $pane;
-    $display->panels['bottom'][1] = 'new-2';
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['bottom'][0] = 'new-1';
     $pane = new stdClass;
-    $pane->pid = 'new-3';
+    $pane->pid = 'new-2';
     $pane->panel = 'left';
     $pane->type = 'views_panes';
     $pane->subtype = 'collection_posts-panel_pane_1';
@@ -1274,9 +1241,11 @@ print flag_create_link(\'bookmarks\', $nid);
       'pager_id' => '',
       'items_per_page' => '5',
       'fields_override' => array(
+        'nid' => 1,
         'title' => 1,
         'field_dr_date_value' => 0,
-        'field_dr_user_name_value' => 1,
+        'field_dr_user_name_value' => 0,
+        'nothing' => 1,
       ),
       'override_title' => 1,
       'override_title_text' => 'Discussions',
@@ -1286,10 +1255,10 @@ print flag_create_link(\'bookmarks\', $nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-3'] = $pane;
-    $display->panels['left'][0] = 'new-3';
+    $display->content['new-2'] = $pane;
+    $display->panels['left'][0] = 'new-2';
     $pane = new stdClass;
-    $pane->pid = 'new-4';
+    $pane->pid = 'new-3';
     $pane->panel = 'left';
     $pane->type = 'views_panes';
     $pane->subtype = 'dr_chunks2-panel_pane_1';
@@ -1318,10 +1287,10 @@ print flag_create_link(\'bookmarks\', $nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-4'] = $pane;
-    $display->panels['left'][1] = 'new-4';
+    $display->content['new-3'] = $pane;
+    $display->panels['left'][1] = 'new-3';
     $pane = new stdClass;
-    $pane->pid = 'new-5';
+    $pane->pid = 'new-4';
     $pane->panel = 'right';
     $pane->type = 'views_panes';
     $pane->subtype = 'collection_users-panel_pane_1';
@@ -1348,10 +1317,10 @@ print flag_create_link(\'bookmarks\', $nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-5'] = $pane;
-    $display->panels['right'][0] = 'new-5';
+    $display->content['new-4'] = $pane;
+    $display->panels['right'][0] = 'new-4';
     $pane = new stdClass;
-    $pane->pid = 'new-6';
+    $pane->pid = 'new-5';
     $pane->panel = 'top';
     $pane->type = 'node_body';
     $pane->subtype = 'node_body';
@@ -1367,8 +1336,8 @@ print flag_create_link(\'bookmarks\', $nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-6'] = $pane;
-    $display->panels['top'][0] = 'new-6';
+    $display->content['new-5'] = $pane;
+    $display->panels['top'][0] = 'new-5';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -2713,6 +2682,216 @@ function _decoder_ring_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:2:field_dr_date_fromto';
+  $strongarm->value = 'both';
+
+  $export['date:dr_post:2:field_dr_date_fromto'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:2:field_dr_date_multiple_from';
+  $strongarm->value = '';
+
+  $export['date:dr_post:2:field_dr_date_multiple_from'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:2:field_dr_date_multiple_number';
+  $strongarm->value = '';
+
+  $export['date:dr_post:2:field_dr_date_multiple_number'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:2:field_dr_date_multiple_to';
+  $strongarm->value = '';
+
+  $export['date:dr_post:2:field_dr_date_multiple_to'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:2:field_dr_date_show_repeat_rule';
+  $strongarm->value = 'show';
+
+  $export['date:dr_post:2:field_dr_date_show_repeat_rule'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:3:field_dr_date_fromto';
+  $strongarm->value = 'both';
+
+  $export['date:dr_post:3:field_dr_date_fromto'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:3:field_dr_date_multiple_from';
+  $strongarm->value = '';
+
+  $export['date:dr_post:3:field_dr_date_multiple_from'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:3:field_dr_date_multiple_number';
+  $strongarm->value = '';
+
+  $export['date:dr_post:3:field_dr_date_multiple_number'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:3:field_dr_date_multiple_to';
+  $strongarm->value = '';
+
+  $export['date:dr_post:3:field_dr_date_multiple_to'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:3:field_dr_date_show_repeat_rule';
+  $strongarm->value = 'show';
+
+  $export['date:dr_post:3:field_dr_date_show_repeat_rule'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:full:field_dr_date_fromto';
+  $strongarm->value = 'both';
+
+  $export['date:dr_post:full:field_dr_date_fromto'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:full:field_dr_date_multiple_from';
+  $strongarm->value = '';
+
+  $export['date:dr_post:full:field_dr_date_multiple_from'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:full:field_dr_date_multiple_number';
+  $strongarm->value = '';
+
+  $export['date:dr_post:full:field_dr_date_multiple_number'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:full:field_dr_date_multiple_to';
+  $strongarm->value = '';
+
+  $export['date:dr_post:full:field_dr_date_multiple_to'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:full:field_dr_date_show_repeat_rule';
+  $strongarm->value = 'show';
+
+  $export['date:dr_post:full:field_dr_date_show_repeat_rule'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:teaser:field_dr_date_fromto';
+  $strongarm->value = 'both';
+
+  $export['date:dr_post:teaser:field_dr_date_fromto'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:teaser:field_dr_date_multiple_from';
+  $strongarm->value = '';
+
+  $export['date:dr_post:teaser:field_dr_date_multiple_from'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:teaser:field_dr_date_multiple_number';
+  $strongarm->value = '';
+
+  $export['date:dr_post:teaser:field_dr_date_multiple_number'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:teaser:field_dr_date_multiple_to';
+  $strongarm->value = '';
+
+  $export['date:dr_post:teaser:field_dr_date_multiple_to'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_post:teaser:field_dr_date_show_repeat_rule';
+  $strongarm->value = 'show';
+
+  $export['date:dr_post:teaser:field_dr_date_show_repeat_rule'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_user:full:field_dr_user_date_fromto';
+  $strongarm->value = 'both';
+
+  $export['date:dr_user:full:field_dr_user_date_fromto'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_user:full:field_dr_user_date_multiple_from';
+  $strongarm->value = '';
+
+  $export['date:dr_user:full:field_dr_user_date_multiple_from'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_user:full:field_dr_user_date_multiple_number';
+  $strongarm->value = '';
+
+  $export['date:dr_user:full:field_dr_user_date_multiple_number'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_user:full:field_dr_user_date_multiple_to';
+  $strongarm->value = '';
+
+  $export['date:dr_user:full:field_dr_user_date_multiple_to'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_user:full:field_dr_user_date_show_repeat_rule';
+  $strongarm->value = 'show';
+
+  $export['date:dr_user:full:field_dr_user_date_show_repeat_rule'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_user:teaser:field_dr_user_date_fromto';
+  $strongarm->value = 'both';
+
+  $export['date:dr_user:teaser:field_dr_user_date_fromto'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_user:teaser:field_dr_user_date_multiple_from';
+  $strongarm->value = '';
+
+  $export['date:dr_user:teaser:field_dr_user_date_multiple_from'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_user:teaser:field_dr_user_date_multiple_number';
+  $strongarm->value = '';
+
+  $export['date:dr_user:teaser:field_dr_user_date_multiple_number'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_user:teaser:field_dr_user_date_multiple_to';
+  $strongarm->value = '';
+
+  $export['date:dr_user:teaser:field_dr_user_date_multiple_to'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date:dr_user:teaser:field_dr_user_date_show_repeat_rule';
+  $strongarm->value = 'show';
+
+  $export['date:dr_user:teaser:field_dr_user_date_show_repeat_rule'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'filter_html_1';
   $strongarm->value = '1';
 
@@ -2734,39 +2913,10 @@ function _decoder_ring_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'theme_default';
-  $strongarm->value = 'singular';
+  $strongarm->name = 'filter_url_length_1';
+  $strongarm->value = '72';
 
-  $export['theme_default'] = $strongarm;
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'theme_settings';
-  $strongarm->value = array(
-    'toggle_logo' => 1,
-    'toggle_name' => 1,
-    'toggle_slogan' => 0,
-    'toggle_mission' => 1,
-    'toggle_node_user_picture' => 0,
-    'toggle_comment_user_picture' => 0,
-    'toggle_search' => 1,
-    'toggle_favicon' => 1,
-    'toggle_primary_links' => 1,
-    'toggle_secondary_links' => 1,
-    'toggle_node_info_dr_collection' => 0,
-    'toggle_node_info_dr_post' => 0,
-    'toggle_node_info_dr_user' => 0,
-    'toggle_node_info_page' => 0,
-    'toggle_node_info_story' => 1,
-    'default_logo' => 1,
-    'logo_path' => '',
-    'logo_upload' => '',
-    'default_favicon' => 1,
-    'favicon_path' => '',
-    'favicon_upload' => '',
-  );
-
-  $export['theme_settings'] = $strongarm;
+  $export['filter_url_length_1'] = $strongarm;
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
