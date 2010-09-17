@@ -56,6 +56,17 @@ function decoder_ring_node_info() {
       'min_word_count' => '0',
       'help' => '',
     ),
+    'dr_group' => array(
+      'name' => t('Decoder Ring Group'),
+      'module' => 'features',
+      'description' => t('Decoder Ring groups put users of the Decoder Ring application into working groups. Groups have access controls based on membership within the group, so that work on a project (including collections, users, and posts) can have varying levels of access permissions..'),
+      'has_title' => '1',
+      'title_label' => t('Name'),
+      'has_body' => '1',
+      'body_label' => t('Description'),
+      'min_word_count' => '0',
+      'help' => '',
+    ),
     'dr_post' => array(
       'name' => t('Decoder Ring Post'),
       'module' => 'features',
@@ -87,6 +98,6 @@ function decoder_ring_node_info() {
  */
 function decoder_ring_views_api() {
   return array(
-    'api' => '3.0-alpha1',
+    'api' => '2',
   );
 }
